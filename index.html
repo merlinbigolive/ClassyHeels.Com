@@ -21,6 +21,9 @@ body:after{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradie
 .hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:120px 20px 70px;position:relative}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-4;pointer-events:none}.hero-video::-webkit-media-controls{display:none!important}
 .hero-video-overlay{position:absolute;inset:0;z-index:-3;background:linear-gradient(180deg,rgba(2,9,20,.58),rgba(2,9,20,.74) 55%,rgba(2,9,20,.90))}
+.hero-marquee{position:absolute;top:76px;left:0;width:100%;overflow:hidden;white-space:nowrap;z-index:4;padding:12px 0;background:linear-gradient(90deg,rgba(9,31,59,.94),rgba(20,65,115,.94),rgba(9,31,59,.94));border-top:1px solid rgba(150,199,255,.22);border-bottom:1px solid rgba(150,199,255,.22);box-shadow:0 8px 28px rgba(0,0,0,.22)}
+.hero-marquee span{display:inline-block;padding-left:100%;font-size:12px;font-weight:900;letter-spacing:.11em;color:#f4f8ff;text-transform:uppercase;animation:marquee-scroll 25s linear infinite}
+@keyframes marquee-scroll{to{transform:translateX(-100%)}}
 
 .hero-inner{max-width:1040px;position:relative;z-index:2}
 .eyebrow{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:#9fc8ff;margin-bottom:22px;animation:rise .9s ease both}
@@ -63,7 +66,7 @@ h1{font-size:clamp(56px,11vw,150px);line-height:.9;letter-spacing:-.055em;font-w
 .offer{margin-top:16px;text-align:center;padding:40px 25px;border-radius:28px;border:1px solid rgba(145,193,255,.15);background:radial-gradient(circle at 50% 0%,rgba(53,133,255,.13),transparent 55%),rgba(7,18,33,.72)}
 .offer h2{font-size:clamp(27px,5vw,46px);letter-spacing:-.03em}.offer p{color:#879db9;margin:9px auto 18px;max-width:600px;line-height:1.7;font-size:14px}
 footer{padding:30px 20px 45px;text-align:center;color:#617792;font-size:11px;letter-spacing:.08em}
-@media(max-width:720px){.nav{height:65px;padding:0 18px}.brand{font-size:11px}.hero{padding-top:100px}.grid{grid-template-columns:1fr}.section{padding:48px 17px}.btn{width:min(100%,320px)}.inline-form{width:min(100%,320px)}.inline-form .btn{width:100%}.actions{flex-direction:column;align-items:center}}
+@media(max-width:720px){.nav{height:65px;padding:0 18px}.brand{font-size:11px}.hero-marquee{top:65px;padding:10px 0}.hero-marquee span{font-size:10px;animation-duration:22s}.hero{padding-top:125px}.grid{grid-template-columns:1fr}.section{padding:48px 17px}.btn{width:min(100%,320px)}.inline-form{width:min(100%,320px)}.inline-form .btn{width:100%}.actions{flex-direction:column;align-items:center}}
 </style>
 
 <!-- Google Analytics 4 -->
@@ -88,6 +91,7 @@ footer{padding:30px 20px 45px;text-align:center;color:#617792;font-size:11px;let
     <source src="hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-video-overlay"></div>
+  <div class="hero-marquee" aria-label="Limited time domain offer"><span>Buy This Premium Domain @ 699 Only - Lowest Price For 10 Days Only Hurry Up - Visit Sedo.Com Click The Buy This Domain Button Below</span></div>
   <div class="glow-orb"></div>
   <div class="hero-inner">
     <div class="premium-sale-tag">This Domain Is For Sale</div>
@@ -97,46 +101,7 @@ footer{padding:30px 20px 45px;text-align:center;color:#617792;font-size:11px;let
     <p class="tagline">A memorable, elegant and highly brandable domain name built for a fashion, footwear, luxury or lifestyle brand.</p>
     <div class="actions">
       <a class="btn primary" href="mailto:urbrandmaker@gmail.com?subject=classyheels.com%20-%20i%20don%27t%20to%20buy%20this%20domain">Contact Seller</a>
-      <form action="https://www.escrow.com/checkout" method="post" target="_blank" class="inline-form">
-        <input type="hidden" name="type" value="domain_name">
-        <input type="hidden" name="non_initiator_email" value="chefravidutta@gmail.com">
-        <input type="hidden" name="non_initiator_id" value="3906931">
-        <input type="hidden" name="non_initiator_role" value="seller">
-        <input type="hidden" name="title" value="Private Acquisition">
-        <input type="hidden" name="currency" value="USD">
-        <input type="hidden" name="domain" value="ClassyHeels.Com">
-        <input type="hidden" name="price" value="2999">
-        <input type="hidden" name="concierge" value="false">
-        <input type="hidden" name="with_content" value="false">
-        <input type="hidden" name="inspection_period" value="1">
-        <input type="hidden" name="fee_payer" value="split">
-        <input type="hidden" name="return_url" value="https://www.classyheels.com">
-        <input type="hidden" name="button_types" value="both">
-        <input type="hidden" name="auto_accept" value="898">
-        <input type="hidden" name="auto_reject" value="799">
-        <input type="hidden" name="item_key" value="classyheels.com">
-        <button class="btn secondary" type="submit">Buy This Domain</button>
-      </form>
-      <form action="https://www.escrow.com/offer" method="post" target="_blank" class="inline-form">
-        <input type="hidden" name="type" value="domain_name">
-        <input type="hidden" name="non_initiator_email" value="chefravidutta@gmail.com">
-        <input type="hidden" name="non_initiator_id" value="3906931">
-        <input type="hidden" name="non_initiator_role" value="seller">
-        <input type="hidden" name="title" value="Private Acquisition">
-        <input type="hidden" name="currency" value="USD">
-        <input type="hidden" name="domain" value="ClassyHeels.Com">
-        <input type="hidden" name="price" value="2999">
-        <input type="hidden" name="concierge" value="false">
-        <input type="hidden" name="with_content" value="false">
-        <input type="hidden" name="inspection_period" value="1">
-        <input type="hidden" name="fee_payer" value="split">
-        <input type="hidden" name="return_url" value="https://www.classyheels.com">
-        <input type="hidden" name="button_types" value="both">
-        <input type="hidden" name="auto_accept" value="898">
-        <input type="hidden" name="auto_reject" value="799">
-        <input type="hidden" name="item_key" value="classyheels.com">
-        <button class="btn secondary" type="submit">Send Offer Price</button>
-      </form>
+      <a class="btn secondary" href="https://sedo.com/search/details/?domain=classyheels.com" target="_blank" rel="noopener noreferrer">Buy This Domain</a>
     </div>
 
   </div>
@@ -170,7 +135,7 @@ footer{padding:30px 20px 45px;text-align:center;color:#617792;font-size:11px;let
   </div>
   <div class="offer" id="offer">
     <h2>Make ClassyHeels.com Yours</h2>
-    <p>Interested in acquiring this premium domain? Start with a purchase or submit an offer.</p>
+    <p>Interested in acquiring this premium domain? Contact the seller or use the Buy This Domain button above.</p>
   </div>
 </div>
 </section>

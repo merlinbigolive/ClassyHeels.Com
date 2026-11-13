@@ -21,9 +21,6 @@ body:after{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradie
 .hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:120px 20px 70px;position:relative}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-4;pointer-events:none}.hero-video::-webkit-media-controls{display:none!important}
 .hero-video-overlay{position:absolute;inset:0;z-index:-3;background:linear-gradient(180deg,rgba(2,9,20,.58),rgba(2,9,20,.74) 55%,rgba(2,9,20,.90))}
-.hero-marquee{position:absolute;top:76px;left:0;width:100%;overflow:hidden;white-space:nowrap;z-index:4;padding:12px 0;background:linear-gradient(90deg,rgba(9,31,59,.94),rgba(20,65,115,.94),rgba(9,31,59,.94));border-top:1px solid rgba(150,199,255,.22);border-bottom:1px solid rgba(150,199,255,.22);box-shadow:0 8px 28px rgba(0,0,0,.22)}
-.hero-marquee span{display:inline-block;padding-left:100%;font-size:12px;font-weight:900;letter-spacing:.11em;color:#f4f8ff;text-transform:uppercase;animation:marquee-scroll 25s linear infinite}
-@keyframes marquee-scroll{to{transform:translateX(-100%)}}
 
 .hero-inner{max-width:1040px;position:relative;z-index:2}
 .eyebrow{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:#9fc8ff;margin-bottom:22px;animation:rise .9s ease both}
@@ -66,7 +63,24 @@ h1{font-size:clamp(56px,11vw,150px);line-height:.9;letter-spacing:-.055em;font-w
 .offer{margin-top:16px;text-align:center;padding:40px 25px;border-radius:28px;border:1px solid rgba(145,193,255,.15);background:radial-gradient(circle at 50% 0%,rgba(53,133,255,.13),transparent 55%),rgba(7,18,33,.72)}
 .offer h2{font-size:clamp(27px,5vw,46px);letter-spacing:-.03em}.offer p{color:#879db9;margin:9px auto 18px;max-width:600px;line-height:1.7;font-size:14px}
 footer{padding:30px 20px 45px;text-align:center;color:#617792;font-size:11px;letter-spacing:.08em}
-@media(max-width:720px){.nav{height:65px;padding:0 18px}.brand{font-size:11px}.hero-marquee{top:65px;padding:10px 0}.hero-marquee span{font-size:10px;animation-duration:22s}.hero{padding-top:125px}.grid{grid-template-columns:1fr}.section{padding:48px 17px}.btn{width:min(100%,320px)}.inline-form{width:min(100%,320px)}.inline-form .btn{width:100%}.actions{flex-direction:column;align-items:center}}
+@media(max-width:720px){.nav{height:65px;padding:0 18px}.brand{font-size:11px}.hero{padding-top:100px}.grid{grid-template-columns:1fr}.section{padding:48px 17px}.btn{width:min(100%,320px)}.inline-form{width:min(100%,320px)}.inline-form .btn{width:100%}.actions{flex-direction:column;align-items:center}}
+
+/* Premium scrolling offer banner: contained entirely within the hero */
+.hero{overflow:hidden;isolation:isolate}
+.hero-video{z-index:0}
+.hero-video-overlay{z-index:1}
+.glow-orb{z-index:2}
+.hero-inner{z-index:3}
+.hero-marquee{position:absolute;top:76px;left:0;width:100%;overflow:hidden;white-space:nowrap;z-index:5;padding:15px 0;background:linear-gradient(100deg,rgba(5,20,43,.96),rgba(18,64,112,.96) 30%,rgba(9,28,58,.97) 65%,rgba(5,20,43,.96));border-top:1px solid rgba(255,220,145,.7);border-bottom:1px solid rgba(112,190,255,.65);box-shadow:0 7px 28px rgba(0,0,0,.36),0 0 22px rgba(75,157,255,.22)}
+.marquee-track{display:flex;width:max-content;animation:marquee-scroll 34s linear infinite}
+.marquee-copy{display:flex;align-items:center;gap:16px;padding-right:24px;font-size:clamp(16px,1.7vw,22px);font-weight:850;letter-spacing:.025em;text-transform:none;color:#f7fbff;text-shadow:0 2px 10px rgba(0,0,0,.55)}
+.marquee-copy strong{color:#fff2c6;text-shadow:0 0 13px rgba(255,203,103,.42)}
+.marquee-copy b{color:#07182e;background:linear-gradient(100deg,#fff0b8,#ffc95c,#fff0b8);padding:6px 12px;border-radius:7px;font-size:1.08em;text-shadow:none;box-shadow:0 0 18px rgba(255,194,79,.3)}
+.marquee-copy span{color:#bfe2ff}
+.marquee-copy em{font-style:normal;color:#ffcf72;font-weight:950}
+@keyframes marquee-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:720px){.hero-marquee{top:65px;padding:13px 0}.marquee-copy{font-size:16px;gap:12px;letter-spacing:0}.marquee-copy b{padding:6px 9px}.marquee-track{animation-duration:42s}}
+
 </style>
 
 <!-- Google Analytics 4 -->
@@ -91,7 +105,12 @@ footer{padding:30px 20px 45px;text-align:center;color:#617792;font-size:11px;let
     <source src="hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-video-overlay"></div>
-  <div class="hero-marquee" aria-label="Limited time domain offer"><span>Buy This Premium Domain @ 699 Only - Lowest Price For 10 Days Only Hurry Up - Visit Sedo.Com Click The Buy This Domain Button Below</span></div>
+  <div class="hero-marquee" aria-label="Limited time domain offer">
+    <div class="marquee-track">
+      <div class="marquee-copy">🔥 <strong>LIMITED-TIME EXCLUSIVE OFFER!</strong> <span>Own This Premium Domain for</span> <b>Just $699!</b> 🏆 <em>Lowest Price – Special Offer Valid for 10 Days Only!</em> ⏳ <span>Don't Miss Out! This Exclusive Deal Won't Last Forever.</span> 🌐 <strong>Visit Sedo.com and Click the "Buy This Domain" Button Below to Secure It Today!</strong></div>
+      <div class="marquee-copy" aria-hidden="true">🔥 <strong>LIMITED-TIME EXCLUSIVE OFFER!</strong> <span>Own This Premium Domain for</span> <b>Just $699!</b> 🏆 <em>Lowest Price – Special Offer Valid for 10 Days Only!</em> ⏳ <span>Don't Miss Out! This Exclusive Deal Won't Last Forever.</span> 🌐 <strong>Visit Sedo.com and Click the "Buy This Domain" Button Below to Secure It Today!</strong></div>
+    </div>
+  </div>
   <div class="glow-orb"></div>
   <div class="hero-inner">
     <div class="premium-sale-tag">This Domain Is For Sale</div>
